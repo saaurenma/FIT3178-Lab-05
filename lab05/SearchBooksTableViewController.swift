@@ -15,6 +15,8 @@ class SearchBooksTableViewController: UITableViewController, UISearchBarDelegate
     var newBooks = [BookData]()
     var indicator = UIActivityIndicatorView()
     
+    weak var databaseController: DatabaseProtocol?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +43,8 @@ class SearchBooksTableViewController: UITableViewController, UISearchBarDelegate
             indicator.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor)
         ])
         
+        let appDelegate = (UIApplication.shared.delegate as? AppDelegate)
+        databaseController = appDelegate?.databaseController
         
     }
     
@@ -60,7 +64,7 @@ class SearchBooksTableViewController: UITableViewController, UISearchBarDelegate
         let urlRequest = URLRequest(url: requestURL)
         
         do {
-            let  (data, response) = try await URLSession.shared.data(for: urlRequest)
+            let  (data, _) = try await URLSession.shared.data(for: urlRequest)
             
             await MainActor.run {
                 indicator.stopAnimating()
@@ -106,9 +110,17 @@ class SearchBooksTableViewController: UITableViewController, UISearchBarDelegate
             await requestBooksNamed(searchText!)
         }
     }
+    
 
     // MARK: - Table view data source
 
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let book = newBooks[indexPath.row]
+        let _ = databaseController?.addBook(bookData: book)
+        navigationController?.popViewController(animated: true)
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -119,7 +131,7 @@ class SearchBooksTableViewController: UITableViewController, UISearchBarDelegate
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "bookCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: CELL_BOOK, for: indexPath)
         
         let book = newBooks[indexPath.row]
         cell.textLabel?.text = book.title

@@ -17,6 +17,10 @@
 		37A5CD7D27FA65CA00197465 /* BookData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A5CD7C27FA65CA00197465 /* BookData.swift */; };
 		37A5CD7F27FA6A9E00197465 /* MyBooksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A5CD7E27FA6A9E00197465 /* MyBooksTableViewController.swift */; };
 		37A5CD8127FA6AB300197465 /* SearchBooksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A5CD8027FA6AB300197465 /* SearchBooksTableViewController.swift */; };
+		37A5CD8427FA72FA00197465 /* BookDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37A5CD8227FA72FA00197465 /* BookDataModel.xcdatamodeld */; };
+		37A5CD8627FA73EE00197465 /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A5CD8527FA73EE00197465 /* MulticastDelegate.swift */; };
+		37A5CD8827FA743E00197465 /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A5CD8727FA743D00197465 /* DatabaseProtocol.swift */; };
+		37A5CD8A27FA75F700197465 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A5CD8927FA75F700197465 /* CoreDataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		37A5CD7C27FA65CA00197465 /* BookData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookData.swift; sourceTree = "<group>"; };
 		37A5CD7E27FA6A9E00197465 /* MyBooksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBooksTableViewController.swift; sourceTree = "<group>"; };
 		37A5CD8027FA6AB300197465 /* SearchBooksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBooksTableViewController.swift; sourceTree = "<group>"; };
+		37A5CD8327FA72FA00197465 /* BookDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BookDataModel.xcdatamodel; sourceTree = "<group>"; };
+		37A5CD8527FA73EE00197465 /* MulticastDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
+		37A5CD8727FA743D00197465 /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProtocol.swift; sourceTree = "<group>"; };
+		37A5CD8927FA75F700197465 /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +83,10 @@
 				37A5CD7C27FA65CA00197465 /* BookData.swift */,
 				37A5CD7E27FA6A9E00197465 /* MyBooksTableViewController.swift */,
 				37A5CD8027FA6AB300197465 /* SearchBooksTableViewController.swift */,
+				37A5CD8227FA72FA00197465 /* BookDataModel.xcdatamodeld */,
+				37A5CD8527FA73EE00197465 /* MulticastDelegate.swift */,
+				37A5CD8727FA743D00197465 /* DatabaseProtocol.swift */,
+				37A5CD8927FA75F700197465 /* CoreDataController.swift */,
 			);
 			path = lab05;
 			sourceTree = "<group>";
@@ -150,13 +162,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37A5CD8427FA72FA00197465 /* BookDataModel.xcdatamodeld in Sources */,
 				37A5CD7D27FA65CA00197465 /* BookData.swift in Sources */,
 				37A5CD6B27FA605E00197465 /* ViewController.swift in Sources */,
 				37A5CD8127FA6AB300197465 /* SearchBooksTableViewController.swift in Sources */,
+				37A5CD8827FA743E00197465 /* DatabaseProtocol.swift in Sources */,
 				37A5CD7F27FA6A9E00197465 /* MyBooksTableViewController.swift in Sources */,
+				37A5CD8A27FA75F700197465 /* CoreDataController.swift in Sources */,
 				37A5CD7B27FA658A00197465 /* VolumeData.swift in Sources */,
 				37A5CD6727FA605E00197465 /* AppDelegate.swift in Sources */,
 				37A5CD6927FA605E00197465 /* SceneDelegate.swift in Sources */,
+				37A5CD8627FA73EE00197465 /* MulticastDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +390,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		37A5CD8227FA72FA00197465 /* BookDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				37A5CD8327FA72FA00197465 /* BookDataModel.xcdatamodel */,
+			);
+			currentVersion = 37A5CD8327FA72FA00197465 /* BookDataModel.xcdatamodel */;
+			path = BookDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 37A5CD5B27FA605D00197465 /* Project object */;
 }
