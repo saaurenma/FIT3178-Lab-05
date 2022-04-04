@@ -13,6 +13,10 @@
 		37A5CD6E27FA605E00197465 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37A5CD6C27FA605E00197465 /* Main.storyboard */; };
 		37A5CD7027FA606000197465 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37A5CD6F27FA606000197465 /* Assets.xcassets */; };
 		37A5CD7327FA606000197465 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37A5CD7127FA606000197465 /* LaunchScreen.storyboard */; };
+		37A5CD7B27FA658A00197465 /* VolumeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A5CD7A27FA658A00197465 /* VolumeData.swift */; };
+		37A5CD7D27FA65CA00197465 /* BookData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A5CD7C27FA65CA00197465 /* BookData.swift */; };
+		37A5CD7F27FA6A9E00197465 /* MyBooksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A5CD7E27FA6A9E00197465 /* MyBooksTableViewController.swift */; };
+		37A5CD8127FA6AB300197465 /* SearchBooksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A5CD8027FA6AB300197465 /* SearchBooksTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		37A5CD6F27FA606000197465 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37A5CD7227FA606000197465 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37A5CD7427FA606100197465 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37A5CD7A27FA658A00197465 /* VolumeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeData.swift; sourceTree = "<group>"; };
+		37A5CD7C27FA65CA00197465 /* BookData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookData.swift; sourceTree = "<group>"; };
+		37A5CD7E27FA6A9E00197465 /* MyBooksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBooksTableViewController.swift; sourceTree = "<group>"; };
+		37A5CD8027FA6AB300197465 /* SearchBooksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBooksTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +71,10 @@
 				37A5CD6F27FA606000197465 /* Assets.xcassets */,
 				37A5CD7127FA606000197465 /* LaunchScreen.storyboard */,
 				37A5CD7427FA606100197465 /* Info.plist */,
+				37A5CD7A27FA658A00197465 /* VolumeData.swift */,
+				37A5CD7C27FA65CA00197465 /* BookData.swift */,
+				37A5CD7E27FA6A9E00197465 /* MyBooksTableViewController.swift */,
+				37A5CD8027FA6AB300197465 /* SearchBooksTableViewController.swift */,
 			);
 			path = lab05;
 			sourceTree = "<group>";
@@ -138,7 +150,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37A5CD7D27FA65CA00197465 /* BookData.swift in Sources */,
 				37A5CD6B27FA605E00197465 /* ViewController.swift in Sources */,
+				37A5CD8127FA6AB300197465 /* SearchBooksTableViewController.swift in Sources */,
+				37A5CD7F27FA6A9E00197465 /* MyBooksTableViewController.swift in Sources */,
+				37A5CD7B27FA658A00197465 /* VolumeData.swift in Sources */,
 				37A5CD6727FA605E00197465 /* AppDelegate.swift in Sources */,
 				37A5CD6927FA605E00197465 /* SceneDelegate.swift in Sources */,
 			);
