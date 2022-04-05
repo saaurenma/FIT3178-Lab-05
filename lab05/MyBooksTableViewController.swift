@@ -14,7 +14,9 @@ class MyBooksTableViewController: UITableViewController, DatabaseListener {
     let CELL_BOOK = "bookCell"
     var allBooks = [Book]()
     weak var databaseController: DatabaseProtocol?
-
+    
+    var selectedBook: Book?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,7 +62,8 @@ class MyBooksTableViewController: UITableViewController, DatabaseListener {
         cell.textLabel?.text = book.title
         cell.detailTextLabel?.text = book.authors
         
-        
+        print(book.title!)
+
         return cell
     }
 
@@ -82,6 +85,13 @@ class MyBooksTableViewController: UITableViewController, DatabaseListener {
         }
     }
 
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedBook = allBooks[indexPath.row]
+        self.performSegue(withIdentifier: "showBookInfo", sender: nil)
+        
+    }
+    
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -97,14 +107,20 @@ class MyBooksTableViewController: UITableViewController, DatabaseListener {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "showBookInfo" {
+            
+            if let destination = segue.destination as? BookInfoViewController {
+                destination.currentBook = selectedBook
+            }
+            
+        }
+        
+        
     }
-    */
 
 }

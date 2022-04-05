@@ -21,6 +21,7 @@
 		37A5CD8627FA73EE00197465 /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A5CD8527FA73EE00197465 /* MulticastDelegate.swift */; };
 		37A5CD8827FA743E00197465 /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A5CD8727FA743D00197465 /* DatabaseProtocol.swift */; };
 		37A5CD8A27FA75F700197465 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A5CD8927FA75F700197465 /* CoreDataController.swift */; };
+		37D07AE627FC06C90026CDFF /* BookInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D07AE527FC06C90026CDFF /* BookInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		37A5CD8527FA73EE00197465 /* MulticastDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
 		37A5CD8727FA743D00197465 /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProtocol.swift; sourceTree = "<group>"; };
 		37A5CD8927FA75F700197465 /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
+		37D07AE527FC06C90026CDFF /* BookInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				37A5CD8527FA73EE00197465 /* MulticastDelegate.swift */,
 				37A5CD8727FA743D00197465 /* DatabaseProtocol.swift */,
 				37A5CD8927FA75F700197465 /* CoreDataController.swift */,
+				37D07AE527FC06C90026CDFF /* BookInfoViewController.swift */,
 			);
 			path = lab05;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37A5CD8427FA72FA00197465 /* BookDataModel.xcdatamodeld in Sources */,
+				37D07AE627FC06C90026CDFF /* BookInfoViewController.swift in Sources */,
 				37A5CD7D27FA65CA00197465 /* BookData.swift in Sources */,
 				37A5CD6B27FA605E00197465 /* ViewController.swift in Sources */,
 				37A5CD8127FA6AB300197465 /* SearchBooksTableViewController.swift in Sources */,

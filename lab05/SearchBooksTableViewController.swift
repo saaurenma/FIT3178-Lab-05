@@ -25,7 +25,9 @@ class SearchBooksTableViewController: UITableViewController, UISearchBarDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        tableView.allowsMultipleSelection = true
+        
         let searchController = UISearchController(searchResultsController: nil)
         
         searchController.searchBar.delegate = self
@@ -131,15 +133,40 @@ class SearchBooksTableViewController: UITableViewController, UISearchBarDelegate
         }
     }
     
+    @IBAction func saveSelectedBooks(_ sender: Any) {
+        
+        let selectedRows = tableView.indexPathsForSelectedRows
+        
+        let selectedBooks = selectedRows?.map {
+            
+            databaseController?.addBook(bookData: newBooks[$0.row])
+            
+        }
+        navigationController?.popViewController(animated: true)
 
+        
+    }
+    
     // MARK: - Table view data source
 
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let book = newBooks[indexPath.row]
-        let _ = databaseController?.addBook(bookData: book)
-        navigationController?.popViewController(animated: true)
+        
+        let cell = tableView.cellForRow(at: indexPath)!
+        cell.accessoryType = .checkmark
+//
+//        let book = newBooks[indexPath.row]
+//        let _ = databaseController?.addBook(bookData: book)
+//        navigationController?.popViewController(animated: true)
     }
+    
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)!
+        cell.accessoryType = .none
+        
+    }
+    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -151,13 +178,24 @@ class SearchBooksTableViewController: UITableViewController, UISearchBarDelegate
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: CELL_BOOK, for: indexPath)
         
+
+        
+
         let book = newBooks[indexPath.row]
         cell.textLabel?.text = book.title
         cell.detailTextLabel?.text = book.authors
         
+        let selectedIndexPaths = tableView.indexPathsForSelectedRows
+        let rowIsSelected = selectedIndexPaths != nil && selectedIndexPaths!.contains(indexPath)
+        cell.accessoryType = rowIsSelected ? .checkmark: .none
         return cell
+        
+
     }
 
     /*
