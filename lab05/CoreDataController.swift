@@ -99,9 +99,16 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
         book.publisher = bookData.publisher
         book.title = bookData.title
         
+        print(book.title!)
         return book
     }
     
+    func deleteBook(book: Book) {
+        
+        persistentContainer.viewContext.delete(book)
+
+        
+    }
     
     
     

@@ -15,6 +15,11 @@ class SearchBooksTableViewController: UITableViewController, UISearchBarDelegate
     var newBooks = [BookData]()
     var indicator = UIActivityIndicatorView()
     
+    
+    let MAX_ITEMS_PER_REQUEST = 40
+    let MAX_REQUESTS = 10
+    var currentRequestIndex: Int = 0
+    
     weak var databaseController: DatabaseProtocol?
     
     
@@ -51,12 +56,18 @@ class SearchBooksTableViewController: UITableViewController, UISearchBarDelegate
     
     func requestBooksNamed(_ bookName: String) async {
         
-        guard let queryString = bookName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
-            print("Query string cannot be encoded.")
-            return
-        }
+        var searchURLComponents = URLComponents()
+        searchURLComponents.scheme = "https"
+        searchURLComponents.host = "www.googleapis.com"
+        searchURLComponents.path = "/books/v1/volumes"
+        searchURLComponents.queryItems = [
+            
+            URLQueryItem(name: "maxResults", value: "\(MAX_ITEMS_PER_REQUEST)"),
+            URLQueryItem(name: "startIndex", value: "\(currentRequestIndex * MAX_ITEMS_PER_REQUEST)"),
+            URLQueryItem(name: "q", value: bookName)
+        ]
         
-        guard let requestURL = URL(string: REQUEST_STRING + queryString) else {
+        guard let requestURL = searchURLComponents.url else {
             print("Invalid URL.")
             return
         }
@@ -77,6 +88,13 @@ class SearchBooksTableViewController: UITableViewController, UISearchBarDelegate
                 await MainActor.run {
                     newBooks.append(contentsOf: books)
                     tableView.reloadData()
+                    
+                }
+                
+                if books.count == MAX_ITEMS_PER_REQUEST, currentRequestIndex + 1 < MAX_REQUESTS {
+
+                    currentRequestIndex += 1
+                    await requestBooksNamed(bookName)
                 }
                 
                 
@@ -107,6 +125,8 @@ class SearchBooksTableViewController: UITableViewController, UISearchBarDelegate
         indicator.startAnimating()
         
         Task {
+            URLSession.shared.invalidateAndCancel()
+            currentRequestIndex = 0
             await requestBooksNamed(searchText!)
         }
     }
