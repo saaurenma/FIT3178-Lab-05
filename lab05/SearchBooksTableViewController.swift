@@ -93,8 +93,7 @@ class SearchBooksTableViewController: UITableViewController, UISearchBarDelegate
                     
                     DispatchQueue.main.async {
                         self.selectedRows?.forEach { selectedRow in
-                            self.tableView.selectRow(at: selectedRow, animated: true, scrollPosition: .none)
-                            
+                            self.tableView.selectRow(at: selectedRow, animated: false, scrollPosition: .none)
                         }
                     }
                     
