@@ -55,6 +55,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3718266127FD33C700E4D41A /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				37A5CD8227FA72FA00197465 /* BookDataModel.xcdatamodeld */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		3718266227FD33DC00E4D41A /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				37A5CD8727FA743D00197465 /* DatabaseProtocol.swift */,
+				37A5CD8527FA73EE00197465 /* MulticastDelegate.swift */,
+				37A5CD8927FA75F700197465 /* CoreDataController.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		37A5CD5A27FA605D00197465 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +92,8 @@
 		37A5CD6527FA605E00197465 /* lab05 */ = {
 			isa = PBXGroup;
 			children = (
+				3718266227FD33DC00E4D41A /* Database */,
+				3718266127FD33C700E4D41A /* DataModel */,
 				37A5CD6627FA605E00197465 /* AppDelegate.swift */,
 				37A5CD6827FA605E00197465 /* SceneDelegate.swift */,
 				37A5CD6A27FA605E00197465 /* ViewController.swift */,
@@ -85,10 +105,6 @@
 				37A5CD7C27FA65CA00197465 /* BookData.swift */,
 				37A5CD7E27FA6A9E00197465 /* MyBooksTableViewController.swift */,
 				37A5CD8027FA6AB300197465 /* SearchBooksTableViewController.swift */,
-				37A5CD8227FA72FA00197465 /* BookDataModel.xcdatamodeld */,
-				37A5CD8527FA73EE00197465 /* MulticastDelegate.swift */,
-				37A5CD8727FA743D00197465 /* DatabaseProtocol.swift */,
-				37A5CD8927FA75F700197465 /* CoreDataController.swift */,
 				37D07AE527FC06C90026CDFF /* BookInfoViewController.swift */,
 			);
 			path = lab05;

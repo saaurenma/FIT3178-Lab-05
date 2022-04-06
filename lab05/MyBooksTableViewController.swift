@@ -20,7 +20,7 @@ class MyBooksTableViewController: UITableViewController, DatabaseListener {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let appDelegate = (UIApplication.shared.delegate as? AppDelegate)
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
         databaseController = appDelegate?.databaseController
         tableView.reloadData()
         
@@ -51,7 +51,6 @@ class MyBooksTableViewController: UITableViewController, DatabaseListener {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return allBooks.count
     }
 
@@ -62,8 +61,6 @@ class MyBooksTableViewController: UITableViewController, DatabaseListener {
         cell.textLabel?.text = book.title
         cell.detailTextLabel?.text = book.authors
         
-        print(book.title!)
-
         return cell
     }
 

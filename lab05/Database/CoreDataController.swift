@@ -99,7 +99,12 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
         book.publisher = bookData.publisher
         book.title = bookData.title
         
-        print(book.title!)
+        do {
+            try persistentContainer.viewContext.save()
+        } catch {
+            fatalError("Failed to save data to Core Data with error \(error)")
+        }
+        
         return book
     }
     

@@ -21,7 +21,7 @@ class SearchBooksTableViewController: UITableViewController, UISearchBarDelegate
     var currentRequestIndex: Int = 0
     
     weak var databaseController: DatabaseProtocol?
-    
+    var selectedRows: [IndexPath]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,6 +91,13 @@ class SearchBooksTableViewController: UITableViewController, UISearchBarDelegate
                     newBooks.append(contentsOf: books)
                     tableView.reloadData()
                     
+                    DispatchQueue.main.async {
+                        self.selectedRows?.forEach { selectedRow in
+                            self.tableView.selectRow(at: selectedRow, animated: true, scrollPosition: .none)
+                            
+                        }
+                    }
+                    
                 }
                 
                 if books.count == MAX_ITEMS_PER_REQUEST, currentRequestIndex + 1 < MAX_REQUESTS {
@@ -135,12 +142,11 @@ class SearchBooksTableViewController: UITableViewController, UISearchBarDelegate
     
     @IBAction func saveSelectedBooks(_ sender: Any) {
         
-        let selectedRows = tableView.indexPathsForSelectedRows
+        selectedRows = tableView.indexPathsForSelectedRows
         
-        let selectedBooks = selectedRows?.map {
-            
+        // add books into database
+        let _ = selectedRows?.map {
             databaseController?.addBook(bookData: newBooks[$0.row])
-            
         }
         navigationController?.popViewController(animated: true)
 
@@ -153,6 +159,10 @@ class SearchBooksTableViewController: UITableViewController, UISearchBarDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let cell = tableView.cellForRow(at: indexPath)!
+        
+        selectedRows = tableView.indexPathsForSelectedRows
+        
+        // need to remember selected state for each row
         cell.accessoryType = .checkmark
 //
 //        let book = newBooks[indexPath.row]
